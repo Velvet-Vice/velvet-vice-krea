@@ -1,25 +1,45 @@
-# ComfyUI-Velvet-Vice-KREA
+# VELVET VICE — KREA
 
 Velvet Vice custom nodes and interface styling for the Krea 2 Vision Prompter workflow.
 
-Version `2.0.0` accompanies the public **VELVET VICE KREA 2 VISION PROMPTER v2.0** workflow. It keeps the independent CREATE / Native Edit / Classic Img2Img architecture and adds the Prompt Director v2, verified prompt-first Ollama release gate, CREATE Format & Resolution selector, Render This Stage controller, safe interrupt recovery, Krea-only Emerald + Violet theme isolation, PowerLoRA theme auto-adoption, layout-safety fixes, and model-neutral Krea diffusion-model selectors.
+Version `2.0.1` accompanies the public **VELVET VICE KREA 2 VISION PROMPTER v2.0** workflow. It keeps the independent CREATE / Native Edit / Classic Img2Img architecture and adds the Prompt Director v2, verified prompt-first Ollama release gate, CREATE Format & Resolution selector, Render This Stage controller, safe interrupt recovery, Krea-only Emerald + Violet theme isolation, PowerLoRA theme auto-adoption, layout-safety fixes, model-neutral Krea diffusion-model selectors, and canonical ComfyUI-Manager install-path cleanup.
 
 ## Installation
 
 ### ComfyUI-Manager / Comfy Registry (recommended)
 
-Install **VELVET VICE — KREA** through ComfyUI-Manager / the Comfy Registry, then restart ComfyUI. The registered package provides all `VelvetViceKrea...` node classes used by the public workflow.
+Install **VELVET VICE — KREA** through ComfyUI-Manager / the Comfy Registry. The canonical package ID and Manager install folder are:
+
+`velvet-vice-krea`
+
+Then restart ComfyUI completely and hard-refresh the browser with `Ctrl+F5`.
+
+A Registry/Manager install should be kept as the only KREA copy in `ComfyUI/custom_nodes`. If an older manual/Civitai copy exists beside it, Manager can correctly uninstall its own `velvet-vice-krea` folder while the old duplicate continues to load the same nodes, making Uninstall appear broken.
+
+Known legacy/manual folder names include:
+
+- `ComfyUI-Velvet-Vice-KREA`
+- `ComfyUI-Velvet-Vice-KREA-main`
+- `velvet-vice-krea-main`
+- `ComfyUI-ILLUMINATE-AI-KREA`
+
+The repository includes `_CLEAN_LEGACY_KREA_DUPLICATES.cmd` for a one-time cleanup of those verified legacy duplicates. It deliberately does **not** remove the canonical Manager folder `velvet-vice-krea`.
 
 ### Civitai release installer
 
-The complete Civitai release also includes the isolated Velvet Vice KREA installer. It backs up and replaces only the dedicated Velvet Vice KREA custom-node installation and does not modify the separate Velvet Vice LTX custom-node pack.
+The complete Civitai release may also include an isolated Velvet Vice KREA installer. New portable/manual packages should place this repository in:
+
+`ComfyUI/custom_nodes/velvet-vice-krea`
+
+Do not install a second copy under another folder name.
 
 ### Manual fallback
 
-1. Remove an older `ComfyUI-ILLUMINATE-AI-KREA` folder if it is still installed.
-2. Place this repository in `ComfyUI/custom_nodes/`.
+1. Remove old Velvet Vice/Illuminate KREA duplicate folders, or run `_CLEAN_LEGACY_KREA_DUPLICATES.cmd`.
+2. Place this repository in `ComfyUI/custom_nodes/velvet-vice-krea`.
 3. Restart ComfyUI completely.
-4. Load `VELVET_VICE_KREA2_VISION_PROMPTER_v2.0.json`.
+4. Hard-refresh the browser with `Ctrl+F5`.
+5. Load `VELVET_VICE_KREA2_VISION_PROMPTER_v2.0.json`.
 
 No additional `pip install` is required by this node pack.
 
@@ -61,4 +81,11 @@ CREATE offers PRESET aspect ratios and STANDARD/HIGH profiles while MANUAL prese
 
 ## Validation
 
-The runtime files in this Registry package are byte-identical to the validated KREA v2.0 Civitai runtime. Release-level workflow, layout and installer tests are maintained with the full Civitai release package.
+The runtime files in this Registry package remain functionally aligned with the validated KREA v2.0 Civitai runtime. Release-level workflow, layout and installer tests are maintained with the full Civitai release package.
+
+## Registry
+
+- Publisher: `velvet-vice`
+- Node ID: `velvet-vice-krea`
+- Version: `2.0.1`
+- Display name: `VELVET VICE — KREA`
