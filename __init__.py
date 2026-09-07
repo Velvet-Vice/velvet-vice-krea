@@ -68,4 +68,4 @@ __all__ = [
     "INTERRUPT_CLEANUP_HOOK_INSTALLED",
 ]
 
-__version__ = "2.0.4"
+__version__ = "2.0.5"
