@@ -32,7 +32,9 @@ For normal editing, the important groups are:
 - `00 — VELVET VICE CONTROL HUB · MODE / FORMAT / SEED`
 - `01 — VELVET VICE CORE LOADOUT · MODEL / ENCODER / VAE / LORAS`
 - `02 — VELVET VICE VISION PROMPT STUDIO · MANUAL / ASSISTED`
-- `04 — IMAGE EDIT STUDIO · THREE INDEPENDENT MODES`
+- `04A — NATIVE EDIT STUDIO • ORIGINAL / CUSTOM`
+- `04B — CLASSIC IMG2IMG STUDIO • SOURCE / DENOISE`
+- `04C — IMAGE EDIT BRANCH CONTROL • ENABLE / GUIDE`
 - `06 — INDEPENDENT OUTPUT STUDIO · FOUR LOCAL FINISH PATHS`
 
 For Native Edit, also enable:
@@ -42,6 +44,8 @@ For Native Edit, also enable:
 For Classic Img2Img, also enable:
 
 - `INTERNAL C — CLASSIC IMG2IMG ENGINE`
+
+The `04C` control group should remain active. It contains the Native and Classic **Fast Groups Bypasser** controls and the activation guide.
 
 You do **not** need to enable optional detailers, concept batch or SeedVR2 just to test whether editing works.
 
@@ -94,9 +98,11 @@ In **00 — WORKFLOW MODE / PROMPT PROFILE**, choose:
 ### Step 2 — Enable the correct groups
 Make sure these are enabled:
 
-- `04 — IMAGE EDIT STUDIO`
+- `04A — NATIVE EDIT STUDIO • ORIGINAL / CUSTOM`
 - `06 — INDEPENDENT OUTPUT STUDIO`
 - `INTERNAL B — NATIVE EDIT ENGINE`
+
+Keep `04B — CLASSIC IMG2IMG STUDIO • SOURCE / DENOISE` bypassed.
 
 ### Step 3 — Load the source image
 Go to:
@@ -216,9 +222,11 @@ In **00 — WORKFLOW MODE / PROMPT PROFILE**, choose:
 ### Step 2 — Enable the correct groups
 Make sure these are enabled:
 
-- `04 — IMAGE EDIT STUDIO`
+- `04B — CLASSIC IMG2IMG STUDIO • SOURCE / DENOISE`
 - `06 — INDEPENDENT OUTPUT STUDIO`
 - `INTERNAL C — CLASSIC IMG2IMG ENGINE`
+
+Keep `04A — NATIVE EDIT STUDIO • ORIGINAL / CUSTOM` bypassed.
 
 ### Step 3 — Load the source image
 Load your image into:
@@ -347,8 +355,9 @@ Check that:
 
 - workflow mode is `NATIVE EDIT — ORIGINAL` or `NATIVE EDIT — CUSTOM`
 - the source image is loaded in `NATIVE EDIT — SOURCE IMAGE`
-- `04 — IMAGE EDIT STUDIO` is enabled
+- `04A — NATIVE EDIT STUDIO • ORIGINAL / CUSTOM` is enabled
 - `INTERNAL B — NATIVE EDIT ENGINE` is enabled
+- `04B — CLASSIC IMG2IMG STUDIO • SOURCE / DENOISE` is bypassed
 - you are inspecting the Native base preview, not a different branch output
 
 ### Classic Img2Img
@@ -356,7 +365,9 @@ Check that:
 
 - workflow mode is `CLASSIC IMG2IMG`
 - the image is loaded in `CLASSIC IMG2IMG SOURCE`
+- `04B — CLASSIC IMG2IMG STUDIO • SOURCE / DENOISE` is enabled
 - `INTERNAL C — CLASSIC IMG2IMG ENGINE` is enabled
+- `04A — NATIVE EDIT STUDIO • ORIGINAL / CUSTOM` is bypassed
 - denoise is around `0.40` for the first test
 - creative LoRAs remain OFF
 - SeedVR2 is bypassed while troubleshooting
