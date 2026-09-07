@@ -1,9 +1,11 @@
 {
   "VelvetViceKreaModelLoader": "Selects a local Krea 2 diffusion model for Velvet Vice KREA workflows.",
   "VelvetViceKreaStageRunner": "Controls partial stage rendering in Velvet Vice KREA workflows.",
+  "VelvetViceKreaSeedVR2MemoryHandoff": "Releases Krea resources before the optional SeedVR2 final stage.",
+  "VelvetViceKreaSeedVR2BranchGate": "Isolates Native/Classic SeedVR2 output paths by active workflow mode.",
   "VelvetViceKreaPromptDirector": "Velvet Vice KREA Vision Prompt Director v2.",
   "VelvetViceKreaOllamaReleaseBarrier": "Waits for Ollama resources to be released before Krea rendering.",
-  "VelvetViceKreaPromptFirstGate": "Prompt-first resource gate for Velvet Vice KREA workflows.",
+  "VelvetViceKreaPromptFirstGate": "Prompt-first branch-isolated resource gate for Velvet Vice KREA workflows.",
   "VelvetViceKreaResolutionSelector": "Format and resolution selector for Krea CREATE mode.",
   "VelvetViceKreaCreateBasePreviewPassthrough": "CREATE base preview passthrough helper.",
   "VelvetViceKreaModeSelector": "Selects the active Velvet Vice KREA workflow mode.",
