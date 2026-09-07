@@ -2,19 +2,17 @@
 
 Velvet Vice custom nodes and interface styling for the Krea 2 Vision Prompter workflow.
 
-Version `2.0.4` accompanies the stable **VELVET VICE KREA 2 VISION PROMPTER v2.0.4** workflow. It retains the independent CREATE / Native Edit / Classic Img2Img architecture and promotes the tested branch-isolation fixes to the public runtime.
+Version `2.0.5` keeps the complete v2.0.4 rendering/edit architecture and adds a ComfyUI Manager / Comfy Registry lifecycle hotfix focused on clean install and uninstall behavior.
 
-## What changed in v2.0.4
+## What changed in v2.0.5
 
-- Prompt-First inactive branches now return ComfyUI `ExecutionBlocker` objects instead of raw `None`, preventing inactive VAEDecode, CLIP and sampler paths from dereferencing invalid resources.
-- Lazy branch resolution is graph-aware, so optional inputs removed by bypassed groups are never incorrectly strengthened into missing links.
-- Native Edit requests `native_original_latent` only for `NATIVE EDIT — ORIGINAL`; the Custom target keeps its own target latent.
-- Native Original, Native Custom and Classic Img2Img SeedVR2 finish paths use a workflow-mode-aware output gate.
-- SeedVR2 can receive a dedicated memory handoff before loading its large models.
-- Native Edit keeps its corrected 768 px grounded-reference path.
-- The public Classic Img2Img workflow uses neutral defaults: optional creative LoRAs OFF, denoise 0.40 and SeedVR2 bypassed during base testing.
-- Native Edit and Classic Img2Img front ends are split into separate bypassable groups: `04A — NATIVE EDIT STUDIO`, `04B — CLASSIC IMG2IMG STUDIO`, with the branch controls kept in `04C — IMAGE EDIT BRANCH CONTROL`.
-- **Missing Custom Nodes metadata hotfix:** every public `VelvetViceKrea*` workflow node now carries `cnr_id = velvet-vice-krea` and `ver = 2.0.4`, allowing ComfyUI Manager to map missing Velvet Vice KREA nodes directly to the canonical Registry package on a clean installation.
+- Added `install.py` lifecycle migration for exact historical KREA duplicate folders.
+- Added `uninstall.py` lifecycle cleanup for ComfyUI Manager / Comfy Registry uninstalls.
+- Before Manager removes the active package, the uninstall helper recursively clears read-only attributes to reduce Windows `PermissionError / WinError 5` deletion failures.
+- Exact legacy KREA folders are removed so an old duplicate cannot make the nodes appear to remain installed after a successful Manager uninstall.
+- `ComfyUI-Velvet-Vice-LTX` is explicitly protected and is never touched.
+- Registry identity remains `velvet-vice-krea`.
+- All v2.0.4 fixes remain: Prompt-First branch isolation, Native Edit 768 px grounding, SeedVR2 output isolation, Classic Img2Img denoise 0.40 neutral default, separate `04A / 04B / 04C` edit groups, and Missing Custom Nodes Registry metadata.
 
 ## Complete Image Edit Guide
 
@@ -30,17 +28,18 @@ Install **VELVET VICE — KREA** through ComfyUI-Manager / the Comfy Registry. T
 
 Then restart ComfyUI completely and hard-refresh the browser with `Ctrl+F5`.
 
-Keep only one Velvet Vice KREA copy in `ComfyUI/custom_nodes`. Legacy folders such as `ComfyUI-Velvet-Vice-KREA`, `ComfyUI-Velvet-Vice-KREA-main`, `velvet-vice-krea-main` or `ComfyUI-ILLUMINATE-AI-KREA` can load the same nodes twice and cause confusing UI or uninstall behavior. The repository includes `_CLEAN_LEGACY_KREA_DUPLICATES.cmd` for one-time cleanup.
+The v2.0.5 Registry package now includes lifecycle helpers that migrate/remove the following exact historical KREA duplicates:
+
+- `ComfyUI-Velvet-Vice-KREA`
+- `ComfyUI-Velvet-Vice-KREA-main`
+- `velvet-vice-krea-main`
+- `ComfyUI-ILLUMINATE-AI-KREA`
+
+The Velvet Vice LTX package is not targeted by these helpers.
 
 ### Civitai package
 
-The Civitai v2.0.4 ZIP includes an isolated installer and the full workflow. The installer targets the same canonical folder:
-
-`ComfyUI/custom_nodes/velvet-vice-krea`
-
-Close ComfyUI before running the installer. It uses a staged copy, backs up the previous KREA folder and never targets the Velvet Vice LTX node pack.
-
-The public workflow JSON itself contains the Registry metadata required for **Missing Custom Nodes** detection. For a real clean-install test, temporarily remove/rename the installed `velvet-vice-krea` folder, restart ComfyUI completely, then load the current v2.0.4 workflow and open **Missing Custom Nodes**.
+The Civitai v2.0.5 ZIP includes the full workflow, the canonical `velvet-vice-krea` custom-node package, the Qwen3.5 Autoprompt installer BAT, the Windows Portable launch example, documentation and the isolated fallback installer.
 
 ## Vision Prompt Director v2
 
@@ -66,21 +65,15 @@ Native Edit is the source-faithful editing path. The source image is preprocesse
 
 ## Classic Img2Img
 
-Classic Img2Img is a traditional denoise-based image-to-image path. The source image is normalized, resized, VAE encoded and connected to the KSampler `latent_image` input. The stable public defaults are deliberately neutral:
+Classic Img2Img is a traditional denoise-based image-to-image path. The source image is normalized, resized, VAE encoded and connected to the KSampler `latent_image` input. Stable public defaults remain:
 
 - Denoise: `0.40`
 - Optional creative LoRAs: OFF
 - SeedVR2: optional / bypassed for the first base test
 
-Raise denoise only when stronger reinterpretation is intended.
-
-## Velvet Vice interface
-
-The browser extension applies the private KREA-only Emerald + Violet visual system and retains the established Velvet Vice execution animation. Newly created or pasted `Power Lora Loader (rgthree)` nodes are adopted only when the graph is already identified as a Velvet Vice KREA workflow. LTX graphs remain outside the KREA namespace.
-
 ## Registry
 
 - Publisher: `velvet-vice`
 - Node ID: `velvet-vice-krea`
-- Version: `2.0.4`
+- Version: `2.0.5`
 - Display name: `VELVET VICE — KREA`
