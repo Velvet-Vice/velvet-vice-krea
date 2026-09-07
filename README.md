@@ -14,6 +14,10 @@ Version `2.0.4` accompanies the stable **VELVET VICE KREA 2 VISION PROMPTER v2.0
 - Native Edit keeps its corrected 768 px grounded-reference path.
 - The public Classic Img2Img workflow uses neutral defaults: optional creative LoRAs OFF, denoise 0.40 and SeedVR2 bypassed during base testing.
 
+## Complete Image Edit Guide
+
+For detailed setup, mode selection, Native Edit Original/Custom, Classic Img2Img denoise behavior, example prompts and troubleshooting, see [`IMAGE_EDIT_GUIDE.md`](IMAGE_EDIT_GUIDE.md).
+
 ## Installation
 
 ### ComfyUI-Manager / Comfy Registry (recommended)
