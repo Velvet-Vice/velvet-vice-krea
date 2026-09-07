@@ -8,6 +8,8 @@ from .velvet_vice_krea.prompt_gate import (
 )
 from .velvet_vice_krea.resolution_selector import VelvetViceKreaResolutionSelector
 from .velvet_vice_krea.stage_runner import VelvetViceKreaStageRunner
+from .velvet_vice_krea.seedvr2_handoff import VelvetViceKreaSeedVR2MemoryHandoff
+from .velvet_vice_krea.output_gate import VelvetViceKreaSeedVR2BranchGate
 from .velvet_vice_krea.interrupt_cleanup import install_interruption_cleanup_hook
 from .velvet_vice_krea.workflow_router import (
     VelvetViceKreaCreateBasePreviewPassthrough,
@@ -22,47 +24,37 @@ from .velvet_vice_krea.workflow_router import (
 NODE_CLASS_MAPPINGS = {
     "VelvetViceKreaModelLoader": VelvetViceKreaModelLoader,
     "VelvetViceKreaStageRunner": VelvetViceKreaStageRunner,
+    "VelvetViceKreaSeedVR2MemoryHandoff": VelvetViceKreaSeedVR2MemoryHandoff,
+    "VelvetViceKreaSeedVR2BranchGate": VelvetViceKreaSeedVR2BranchGate,
     "VelvetViceKreaPromptDirector": VelvetViceKreaPromptDirector,
     "VelvetViceKreaOllamaReleaseBarrier": VelvetViceKreaOllamaReleaseBarrier,
     "VelvetViceKreaPromptFirstGate": VelvetViceKreaPromptFirstGate,
     "VelvetViceKreaResolutionSelector": VelvetViceKreaResolutionSelector,
-    "VelvetViceKreaCreateBasePreviewPassthrough": (
-        VelvetViceKreaCreateBasePreviewPassthrough
-    ),
+    "VelvetViceKreaCreateBasePreviewPassthrough": VelvetViceKreaCreateBasePreviewPassthrough,
     "VelvetViceKreaModeSelector": VelvetViceKreaModeSelector,
     "VelvetViceKreaImageRouter": VelvetViceKreaImageRouter,
     "VelvetViceKreaSelectedBasePreview": VelvetViceKreaSelectedBasePreview,
     "VelvetViceKreaSeedVR2Router": VelvetViceKreaSeedVR2Router,
-    "VelvetViceKreaCreateRefinementPreview": (
-        VelvetViceKreaCreateRefinementPreview
-    ),
-    "VelvetViceKreaCreateRefinementPreviewPassthrough": (
-        VelvetViceKreaCreateRefinementPreviewPassthrough
-    ),
+    "VelvetViceKreaCreateRefinementPreview": VelvetViceKreaCreateRefinementPreview,
+    "VelvetViceKreaCreateRefinementPreviewPassthrough": VelvetViceKreaCreateRefinementPreviewPassthrough,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "VelvetViceKreaModelLoader": "VELVET VICE KREA — Select Krea 2 Model",
     "VelvetViceKreaStageRunner": "VELVET VICE KREA — Render This Stage",
+    "VelvetViceKreaSeedVR2MemoryHandoff": "VELVET VICE KREA — SeedVR2 Memory Handoff",
+    "VelvetViceKreaSeedVR2BranchGate": "VELVET VICE KREA — SeedVR2 Branch Gate",
     "VelvetViceKreaPromptDirector": "VELVET VICE KREA — Vision Prompt Director v2",
     "VelvetViceKreaOllamaReleaseBarrier": "VELVET VICE KREA — Ollama Release Barrier",
     "VelvetViceKreaPromptFirstGate": "VELVET VICE KREA — Prompt-First Gate",
     "VelvetViceKreaResolutionSelector": "VELVET VICE KREA — Format & Resolution",
-    "VelvetViceKreaCreateBasePreviewPassthrough": (
-        "VELVET VICE KREA — Create Base Preview"
-    ),
+    "VelvetViceKreaCreateBasePreviewPassthrough": "VELVET VICE KREA — Create Base Preview",
     "VelvetViceKreaModeSelector": "VELVET VICE KREA — Mode Selector",
     "VelvetViceKreaImageRouter": "VELVET VICE KREA — Image Router",
-    "VelvetViceKreaSelectedBasePreview": (
-        "VELVET VICE KREA — Selected Base Preview"
-    ),
+    "VelvetViceKreaSelectedBasePreview": "VELVET VICE KREA — Selected Base Preview",
     "VelvetViceKreaSeedVR2Router": "VELVET VICE KREA — SeedVR2 Router",
-    "VelvetViceKreaCreateRefinementPreview": (
-        "VELVET VICE KREA — Create Refinement Preview"
-    ),
-    "VelvetViceKreaCreateRefinementPreviewPassthrough": (
-        "VELVET VICE KREA — Refinement Preview"
-    ),
+    "VelvetViceKreaCreateRefinementPreview": "VELVET VICE KREA — Create Refinement Preview",
+    "VelvetViceKreaCreateRefinementPreviewPassthrough": "VELVET VICE KREA — Refinement Preview",
 }
 
 WEB_DIRECTORY = "./web"
@@ -76,4 +68,4 @@ __all__ = [
     "INTERRUPT_CLEANUP_HOOK_INSTALLED",
 ]
 
-__version__ = "2.0.1"
+__version__ = "2.0.4"
