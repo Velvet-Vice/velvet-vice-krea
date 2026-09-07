@@ -197,7 +197,7 @@ class VelvetViceKreaPromptFirstGate:
             else:
                 hint = "Enable INTERNAL A — CREATE ENGINE and the CREATE core loadout."
             raise RuntimeError(
-                f"VELVET VICE KREA PROMPT-FIRST GATE: {mode} is missing link(s): {', '.join(absent)}. {hint}"
+                f"VELVET VICE KREA PROMPT-FIRST GATE: {mode} is incomplete. Missing link(s): {', '.join(absent)}. {hint}"
             )
         unresolved = [name for name in selected if values[name] is None]
         if unresolved:
