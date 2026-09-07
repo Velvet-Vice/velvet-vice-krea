@@ -13,6 +13,8 @@ Version `2.0.4` accompanies the stable **VELVET VICE KREA 2 VISION PROMPTER v2.0
 - SeedVR2 can receive a dedicated memory handoff before loading its large models.
 - Native Edit keeps its corrected 768 px grounded-reference path.
 - The public Classic Img2Img workflow uses neutral defaults: optional creative LoRAs OFF, denoise 0.40 and SeedVR2 bypassed during base testing.
+- Native Edit and Classic Img2Img front ends are split into separate bypassable groups: `04A — NATIVE EDIT STUDIO`, `04B — CLASSIC IMG2IMG STUDIO`, with the branch controls kept in `04C — IMAGE EDIT BRANCH CONTROL`.
+- **Missing Custom Nodes metadata hotfix:** every public `VelvetViceKrea*` workflow node now carries `cnr_id = velvet-vice-krea` and `ver = 2.0.4`, allowing ComfyUI Manager to map missing Velvet Vice KREA nodes directly to the canonical Registry package on a clean installation.
 
 ## Complete Image Edit Guide
 
@@ -37,6 +39,8 @@ The Civitai v2.0.4 ZIP includes an isolated installer and the full workflow. The
 `ComfyUI/custom_nodes/velvet-vice-krea`
 
 Close ComfyUI before running the installer. It uses a staged copy, backs up the previous KREA folder and never targets the Velvet Vice LTX node pack.
+
+The public workflow JSON itself contains the Registry metadata required for **Missing Custom Nodes** detection. For a real clean-install test, temporarily remove/rename the installed `velvet-vice-krea` folder, restart ComfyUI completely, then load the current v2.0.4 workflow and open **Missing Custom Nodes**.
 
 ## Vision Prompt Director v2
 
